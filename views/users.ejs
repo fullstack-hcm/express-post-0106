@@ -29,8 +29,14 @@
             <ul>
                 <%users.forEach(item => {%>
                     <li>
-                        <%= item.username%>
+                        <strong>
+                            <%= item.username%> 
+                        </strong>
+                        <a href="/user/delete/<%=item.username%>">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
                     </li>
+                    <br>
                 <%})%>
             </ul>
         <%}%>

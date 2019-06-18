@@ -57,5 +57,15 @@ app.post('/add-user', (req, res) => {
     users.push({ username, password });
     return res.render('users', { error: false, users })
 })
+/**
+ * 
+ */
+app.get('/user/delete/:username', (req, res) => {
+    const { username } = req.params;
+    const indexFinded = users.findIndex(user => Object.is(username.toString(), user.username.toString()));
+    users.splice(indexFinded, 1);
+    
+    res.redirect('/users');
+})
 
 app.listen(3000, () => console.log(`SERVER STARTED AT PORT 3000`));
